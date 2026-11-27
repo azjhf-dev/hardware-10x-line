@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The 10x Line - one video, a whole map of hardware innovation</title>
+<meta name="description" content="Every segment of 'Building Hardware Just got 10x Cheaper' spun off into its own thread, with verified sources and marked gaps.">
+<style>
+:root { --bg:#0b0e14; --card:#141926; --line:#232c42; --txt:#e7ecf5; --dim:#93a0b8; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { background:var(--bg); color:var(--txt); font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; -webkit-text-size-adjust:100%; }
+.wrap { max-width:760px; margin:0 auto; padding:0 16px 80px; }
+header.hero { padding:36px 0 8px; }
+.kicker { color:var(--dim); font-size:12px; letter-spacing:.18em; text-transform:uppercase; }
+h1 { font-size:30px; line-height:1.15; margin:8px 0 10px; }
+h1 .x { color:#f5a524; }
+.lede { color:var(--dim); font-size:15px; }
+.stats { display:flex; gap:14px; flex-wrap:wrap; margin:16px 0 4px; }
+.stat { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:8px 12px; font-size:13px; color:var(--dim); }
+.stat b { color:var(--txt); font-size:17px; display:block; }
+.player { position:relative; aspect-ratio:16/9; margin:18px 0 6px; border-radius:14px; overflow:hidden; border:1px solid var(--line); }
+.player iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
+.credit { font-size:12.5px; color:var(--dim); margin:6px 0 0; }
+.credit a { color:#93c5fd; }
+h2 { font-size:19px; margin:30px 0 10px; }
+.mapwrap { overflow-x:auto; background:var(--card); border:1px solid var(--line); border-radius:14px; margin:14px 0; }
+.map { display:block; min-width:720px; width:100%; height:auto; }
+.mt { fill:var(--dim); font-size:9px; text-anchor:middle; }
+.ml { font-size:12px; font-weight:700; }
+.map a circle { transition:r .15s; }
+.map a:hover circle { r:10; }
+.filters { display:flex; gap:8px; flex-wrap:wrap; margin:14px 0 18px; }
+.chip { background:var(--card); color:var(--txt); border:1px solid var(--line); border-radius:999px; padding:7px 14px; font-size:13.5px; cursor:pointer; }
+.chip.on { border-color:var(--c); color:var(--c); box-shadow:0 0 0 1px var(--c) inset; }
+.station { background:var(--card); border:1px solid var(--line); border-radius:14px; margin:0 0 12px; overflow:hidden; }
+.station.hide { display:none; }
+.head { display:flex; align-items:center; gap:12px; width:100%; text-align:left; background:none; border:0; color:var(--txt); padding:14px 14px; cursor:pointer; font:inherit; }
+.dot { flex:0 0 auto; width:14px; height:14px; border-radius:50%; background:var(--c); box-shadow:0 0 10px var(--c); }
+.headtext { flex:1 1 auto; min-width:0; }
+.stitle { display:block; font-weight:650; font-size:15.5px; line-height:1.3; }
+.ssub { display:block; color:var(--dim); font-size:13px; }
+.ts { flex:0 0 auto; color:var(--c); text-decoration:none; font-weight:700; font-size:13px; border:1px solid var(--c); border-radius:8px; padding:5px 9px; white-space:nowrap; }
+.body { display:none; padding:2px 16px 16px 42px; }
+.station.open .body { display:block; }
+.brief { font-size:14.5px; margin-bottom:10px; }
+.why { font-size:13.5px; color:var(--dim); margin-bottom:12px; }
+.spin h4, .gaps h4 { font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--dim); margin:10px 0 6px; }
+.spin ul { list-style:none; }
+.spin li { margin:0 0 7px; padding-left:16px; position:relative; font-size:14px; }
+.spin li::before { content:"↳"; position:absolute; left:0; color:#34d399; }
+.spin a { color:#93c5fd; text-decoration:none; border-bottom:1px dotted #3b82f6; }
+.gaps { border:1px dashed #a16207; border-radius:10px; padding:10px 12px; margin-top:10px; background:rgba(245,158,11,.05); }
+.gaps h4 { color:#fbbf24; margin-top:0; }
+.gaps ul { padding-left:18px; }
+.gaps li { font-size:13.5px; color:#e9d5a1; margin-bottom:5px; }
+.bigpic { background:linear-gradient(135deg,#141926,#101827); border:1px solid var(--line); border-radius:14px; padding:18px; margin:26px 0; }
+.bigpic ol { padding-left:20px; }
+.bigpic li { margin-bottom:10px; font-size:14.5px; }
+.bigpic b { color:#f5a524; }
+footer { margin-top:34px; color:var(--dim); font-size:12.5px; border-top:1px solid var(--line); padding-top:14px; }
+footer a { color:#93c5fd; }
+@media (min-width:640px) { h1 { font-size:38px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="hero">
+  <div class="kicker">A microcosm of innovation · 1 video · 20 stations</div>
+  <h1>The <span class="x">10x</span> Line</h1>
+  <p class="lede">One 11-minute walk through America's biggest manufacturing show contains a whole map of where hardware is going. Every segment below is a station. Every station spins off its own threads. Claims are checked against public sources; anything we couldn't verify is marked as a gap.</p>
+  <div class="stats">
+    <div class="stat"><b>20</b>stations</div>
+    <div class="stat"><b>26</b>sourced threads</div>
+    <div class="stat"><b>9</b>open gaps</div>
+    <div class="stat"><b>11:24</b>source video</div>
+  </div>
+</header>
+
+<div class="player">
+  <iframe src="https://www.youtube.com/embed/tEhbO2z7bMU" title="Building Hardware Just got 10x Cheaper" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+</div>
+<p class="credit">Source: <a href="https://www.youtube.com/watch?v=tEhbO2z7bMU" target="_blank" rel="noopener">"Building Hardware Just got 10x Cheaper" - Leon Ex Machina</a>. Segments follow the video's own chapter markers.</p>
+
+<h2>The map</h2>
+<p class="lede">Four lines run through the video. Tap a station dot to jump to it.</p>
+<div class="mapwrap"><svg viewBox="0 0 810 300" class="map" role="img" aria-label="Metro map of the video">
+ <line x1="20" y1="70" x2="800" y2="70" stroke="#f5a524" stroke-width="3" opacity="0.55"/>
+ <line x1="20" y1="130" x2="800" y2="130" stroke="#38bdf8" stroke-width="3" opacity="0.55"/>
+ <line x1="20" y1="190" x2="800" y2="190" stroke="#34d399" stroke-width="3" opacity="0.55"/>
+ <line x1="20" y1="250" x2="800" y2="250" stroke="#f472b6" stroke-width="3" opacity="0.55"/>
+ <text x="8" y="74" class="ml" fill="#f5a524">M</text>
+ <text x="8" y="134" class="ml" fill="#38bdf8">I</text>
+ <text x="8" y="194" class="ml" fill="#34d399">$</text>
+ <text x="8" y="254" class="ml" fill="#f472b6">★</text>
+ <a href="#s01"><circle cx="40" cy="250" r="7" fill="#f472b6"/><text x="40" y="272" class="mt">0:00</text></a><a href="#s02"><circle cx="78" cy="70" r="7" fill="#f5a524"/><text x="78" y="92" class="mt">0:41</text></a><a href="#s03"><circle cx="116" cy="70" r="7" fill="#f5a524"/><text x="116" y="92" class="mt">0:55</text></a><a href="#s04"><circle cx="154" cy="70" r="7" fill="#f5a524"/><text x="154" y="92" class="mt">1:14</text></a><a href="#s05"><circle cx="192" cy="70" r="7" fill="#f5a524"/><text x="192" y="92" class="mt">1:43</text></a><a href="#s06"><circle cx="230" cy="70" r="7" fill="#f5a524"/><text x="230" y="92" class="mt">2:17</text></a><a href="#s07"><circle cx="268" cy="70" r="7" fill="#f5a524"/><text x="268" y="92" class="mt">2:35</text></a><a href="#s08"><circle cx="306" cy="130" r="7" fill="#38bdf8"/><text x="306" y="152" class="mt">3:16</text></a><a href="#s09"><circle cx="344" cy="130" r="7" fill="#38bdf8"/><text x="344" y="152" class="mt">3:37</text></a><a href="#s10"><circle cx="382" cy="130" r="7" fill="#38bdf8"/><text x="382" y="152" class="mt">4:16</text></a><a href="#s11"><circle cx="420" cy="130" r="7" fill="#38bdf8"/><text x="420" y="152" class="mt">4:47</text></a><a href="#s12"><circle cx="458" cy="130" r="7" fill="#38bdf8"/><text x="458" y="152" class="mt">5:05</text></a><a href="#s13"><circle cx="496" cy="190" r="7" fill="#34d399"/><text x="496" y="212" class="mt">6:10</text></a><a href="#s14"><circle cx="534" cy="190" r="7" fill="#34d399"/><text x="534" y="212" class="mt">6:36</text></a><a href="#s15"><circle cx="572" cy="190" r="7" fill="#34d399"/><text x="572" y="212" class="mt">7:08</text></a><a href="#s16"><circle cx="610" cy="190" r="7" fill="#34d399"/><text x="610" y="212" class="mt">7:35</text></a><a href="#s17"><circle cx="648" cy="190" r="7" fill="#34d399"/><text x="648" y="212" class="mt">8:33</text></a><a href="#s18"><circle cx="686" cy="190" r="7" fill="#34d399"/><text x="686" y="212" class="mt">10:03</text></a><a href="#s19"><circle cx="724" cy="250" r="7" fill="#f472b6"/><text x="724" y="272" class="mt">10:16</text></a><a href="#s20"><circle cx="762" cy="250" r="7" fill="#f472b6"/><text x="762" y="272" class="mt">10:55</text></a>
+</svg></div>
+<div class="filters">
+  <button class="chip on" data-f="all" style="--c:#e7ecf5" onclick="filterLine('all',this)">All lines</button>
+  <button class="chip" data-f="machines" style="--c:#f5a524" onclick="filterLine('machines',this)">⚙ Machines</button><button class="chip" data-f="intelligence" style="--c:#38bdf8" onclick="filterLine('intelligence',this)">🧠 Intelligence</button><button class="chip" data-f="money" style="--c:#34d399" onclick="filterLine('money',this)">◆ Money</button><button class="chip" data-f="takeaways" style="--c:#f472b6" onclick="filterLine('takeaways',this)">★ Takeaways</button>
+</div>
+
+<div id="stations">
+
+<article class="station" data-line="takeaways" id="s01">
+  <button class="head" onclick="toggle('s01')" aria-expanded="false">
+    <span class="dot" style="--c:#f472b6"></span>
+    <span class="headtext">
+      <span class="stitle">Six days, 100,000 steps</span>
+      <span class="ssub">One man, one trade show, one map of the future</span>
+    </span>
+    <a class="ts" style="--c:#f472b6" href="https://www.youtube.com/watch?v=tEhbO2z7bMU&t=0s" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ 0:00</a>
+  </button>
+  <div class="body">
+    <p class="brief">Leon (chief robo-pilot and head of storytelling at Fictiv) walks IMTS, America&#x27;s largest manufacturing trade show, after training human co-pilots to cover his booth duty. His mission: survey 1,700+ exhibits and figure out what IMTS is really about.</p>
+    <p class="why"><b>Why it matters:</b> The whole video is a field report from the exact place where factory tech gets its prices reset. Everything after this station is something he physically stood in front of.</p>
+    <div class="spin"><h4>Spin-off threads</h4><ul><li><a href="https://www.imts.com/media/pdf/PostShow2024PRv2.pdf" target="_blank" rel="noopener">IMTS 2024 post-show report: ~90,000 registrants, 1,737 exhibitors</a></li><li><a href="https://www.youtube.com/@Leon_ExMachina" target="_blank" rel="noopener">The channel: Leon Ex Machina</a></li></ul></div>
+  </div>
+</article>
+
+<article class="station" data-line="machines" id="s02">
+  <button class="head" onclick="toggle('s02')" aria-expanded="false">
+    <span class="dot" style="--c:#f5a524"></span>
+    <span class="headtext">
+      <span class="stitle">South Hall: the CNC spectacle</span>
+      <span class="ssub">Haas, Okuma, Fanuc - and a robot swinging a Corvette</span>
+    </span>
+    <a class="ts" style="--c:#f5a524" href="https://www.youtube.com/watch?v=tEhbO2z7bMU&t=41s" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ 0:41</a>
+  </button>
+  <div class="body">
+    <p class="brief">The giants flex six- and seven-figure booths. Fanuc&#x27;s giant robot arm swings a Chevy Corvette like a toy. But the machine that stops Leon is much smaller: a desktop CNC.</p>
+    <p class="why"><b>Why it matters:</b> The spectacle is the contrast. The incumbents spend millions on floor space while the real story sits on a table.</p>
+    <div class="spin"><h4>Spin-off threads</h4><ul><li><a href="https://www.reddit.com/r/robotics/comments/1fnzj4v/very_large_fanuc_robot_m2000_lifting_chevy/" target="_blank" rel="noopener">The Corvette-lifting robot: FANUC M-2000 at IMTS 2024 (visitor footage)</a></li><li><a href="https://www.etglobal.com/projects-blog/fanuc-imts-2024-exhibition-booth" target="_blank" rel="noopener">Fanuc&#x27;s own IMTS 2024 booth recap</a></li></ul></div><div class="gaps"><h4>Open gaps</h4><ul><li>ASR garbled one exhibitor name (&quot;Hz&quot;) - likely Haas; the video audio is the source of truth</li></ul></div>
+  </div>
+</article>
+
+<article class="station" data-line="machines" id="s03">
+  <button class="head" onclick="toggle('s03')" aria-expanded="false">
+    <span class="dot" style="--c:#f5a524"></span>
+    <span class="headtext">
+      <span class="stitle">ToolDance X1: the desktop CNC that shouldn&#x27;t exist</span>
+      <span class="ssub">3+2 axis, 9-slot tool changer, AI CAM - on a desk</span>
+    </span>
+    <a class="ts" style="--c:#f5a524" href="https://www.youtube.com/watch?v=tEhbO2z7bMU&t=55s" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ 0:55</a>
+  </button>
+  <div class="body">
+    <p class="brief">A desktop 3+2-axis CNC mill with coolant, a guided touch probe for auto-locating, a 9-slot automatic tool changer, touchscreen dashboard, live camera feed and integrated AI CAM software. Desktop mills were always capped in sophistication by their limited market size. Not anymore.</p>
+    <p class="why"><b>Why it matters:</b> This is the video&#x27;s thesis in one machine: factory-grade capability collapsing into garage-grade price and size.</p>
+    <div class="spin"><h4>Spin-off threads</h4><ul><li><a href="https://tooldance.ai/" target="_blank" rel="noopener">ToolDance official site</a></li><li><a href="https://cncrouterinfo.com/guides/tooldance-x1-desktop-cnc-preview/" target="_blank" rel="noopener">X1 preview: 9-tool ATC desktop CNC from $2,999 on Kickstarter</a></li><li><a href="https://www.prnewswire.com/news-releases/tooldance-unveils-x1-smart-desktop-cnc-mill-at-ifa-2026-302870568.html" target="_blank" rel="noopener">ToolDance X1 unveiling at IFA 2026 (PRNewswire)</a></li></ul></div>
+  </div>
+</article>
+
+<article class="station" data-line="machines" id="s04">
+  <button class="head" onclick="toggle('s04')" aria-expanded="false">
+    <span class="dot" style="--c:#f5a524"></span>
+    <span class="headtext">
+      <span class="stitle">Metal 3D printing at micron scale</span>
+      <span class="ssub">Aixway&#x27;s Inconel octopus and the physics of the build plate</span>
+    </span>
+    <a class="ts" style="--c:#f5a524" href="https://www.youtube.com/watch?v=tEhbO2z7bMU&t=74s" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ 1:14</a>
+  </button>
+  <div class="body">
+    <p class="brief">Behind the CNCs, the additive hall. Leon learns that LPBF/SLM metal printing needs a metal build plate that doubles as heat sink and scaffold. Favorite print: a tiny Inconel octopus from Aixway, a German-Chinese company specializing in micron-scale precision SLM - plus a turbine fan coupled to a working planetary gear set and a micro-lattice cube.</p>
+    <p class="why"><b>Why it matters:</b> Metal printing used to be a seven-figure religion. Micron-scale SLM from a young German-Chinese shop shows how fast the frontier is fragmenting and globalizing.</p>
+    <div class="spin"><h4>Spin-off threads</h4><ul><li><a href="https://aixway3d.de/" target="_blank" rel="noopener">Aixway (English site)</a></li><li><a href="https://www.vcbeathealth.com/article/22407" target="_blank" rel="noopener">Aixway&#x27;s Chinese parent 云耀深维 (Yunyao Shenwei) raised tens of millions led by Sequoia</a></li></ul></div>
+  </div>
+</article>
+
+<article class="station" data-line="machines" id="s05">
+  <button class="head" onclick="toggle('s05')" aria-expanded="false">
+    <span class="dot" style="--c:#f5a524"></span>
+    <span class="headtext">
+      <span class="stitle">The Formlabs precedent</span>
+      <span class="ssub">2012: SLA printing drops from $200k to $3,000</span>
+    </span>
+    <a class="ts" style="--c:#f5a524" href="https://www.youtube.com/watch?v=tEhbO2z7bMU&t=103s" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ 1:43</a>
+  </button>
+  <div class="body">
+    <p class="brief">In 2012 Formlabs brought SLA polymer 3D printing from hundreds of thousands of dollars down to about $3,000, enabling thousands of engineers to iterate on looks-like and works-like prototypes. At the booth: a silly demo hammering nails with a hammer printed in their Tough resin.</p>
+    <p class="why"><b>Why it matters:</b> Formlabs is the template every &quot;10x cheaper&quot; story in this video copies. The video keeps asking: who is the Formlabs of CNC, of CT scanning, of factory software?</p>
+    <div class="spin"><h4>Spin-off threads</h4><ul><li><a href="https://formlabs.com/company/press/formlabs-announces-the-form-1/" target="_blank" rel="noopener">Formlabs announces the Form 1 (2012 press release)</a></li><li><a href="https://www.kickstarter.com/projects/formlabs/form-1-an-affordable-professional-3d-printer" target="_blank" rel="noopener">The original Form 1 Kickstarter campaign</a></li></ul></div>
+  </div>
+</article>
+
+<article class="station" data-line="machines" id="s06">
+  <button class="head" onclick="toggle('s06')" aria-expanded="false">
+    <span class="dot" style="--c:#f5a524"></span>
+    <span class="headtext">
+      <span class="stitle">West Hall: the unsexy bottleneck</span>
+      <span class="ssub">Drills, endmills, inserts - and tombstone towers clamping 60 parts at once</span>
+    </span>
+    <a class="ts" style="--c:#f5a524" href="https://www.youtube.com/watch?v=tEhbO2z7bMU&t=137s" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ 2:17</a>
+  </button>
+  <div class="body">
+    <p class="brief">Hundreds of booths of drills, endmills, inserts and workholding. Repetitive - until the tower tombstone cluster fixtures that run on 4- or 5-axis machines, clamping 8 to 60+ parts at once for higher throughput.</p>
+    <p class="why"><b>Why it matters:</b> Throughput is often won in fixturing, not in the spindle. The boring hall hides the multiplier.</p>
+    <div class="gaps"><h4>Open gaps</h4><ul><li>The video names no vendor for the tombstone fixtures - a spin-off thread for anyone who wants to hunt the booth number</li></ul></div>
+  </div>
+</article>
+
+<article class="station" data-line="machines" id="s07">
+  <button class="head" onclick="toggle('s07')" aria-expanded="false">
+    <span class="dot" style="--c:#f5a524"></span>
+    <span class="headtext">
+      <span class="stitle">East Hall: seeing through walls</span>
+      <span class="ssub">Lumafield does to CT scanning what Formlabs did to SLA</span>
+    </span>
+    <a class="ts" style="--c:#f5a524" href="https://www.youtube.com/watch?v=tEhbO2z7bMU&t=155s" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ 2:35</a>
+  </button>
+  <div class="body">
+    <p class="brief">Software and metrology land. Keyence seems to have a booth in every hall. Lumafield shows industrial X-ray/CT scanning: fast, non-destructive dissection of parts. Leon&#x27;s old workflow without a multi-million-dollar CT machine: pot the part in epoxy, bandsaw it in half, hand-polish the face. Lumafield drops industrial CT from six/seven figures to five figures up front or a few thousand a month.</p>
+    <p class="why"><b>Why it matters:</b> Metrology is the feedback loop of manufacturing. When inspection gets 10x cheaper, quality stops being a big-company privilege.</p>
+    <div class="spin"><h4>Spin-off threads</h4><ul><li><a href="https://research.contrary.com/report/lumafield" target="_blank" rel="noopener">Lumafield business breakdown and founding story (Contrary Research)</a></li><li><a href="https://www.theverge.com/2023/3/18/23640484/lumafield-neptune-ct-scanner-3d-x-ray-hands-on-interview" target="_blank" rel="noopener">The Verge hands-on with the Lumafield Neptune scanner</a></li><li><a href="https://www.lumafield.com/article/lumafield-series-b-funding" target="_blank" rel="noopener">Lumafield&#x27;s $35M Series B announcement</a></li></ul></div><div class="gaps"><h4>Open gaps</h4><ul><li>Exact current Neptune pricing is the video&#x27;s claim; Lumafield sells custom quotes, so the &quot;five figures / few-thousand-a-month&quot; figure is directional, not a published price list</li></ul></div>
+  </div>
+</article>
+
+<article class="station" data-line="intelligence" id="s08">
+  <button class="head" onclick="toggle('s08')" aria-expanded="false">
+    <span class="dot" style="--c:#38bdf8"></span>
+    <span class="headtext">
+      <span class="stitle">North Hall: white collars on the factory floor</span>
+      <span class="ssub">Google Cloud and AWS crash the machine show</span>
+    </span>
+    <a class="ts" style="--c:#38bdf8" href="https://www.youtube.com/watch?v=tEhbO2z7bMU&t=196s" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ 3:16</a>
+  </button>
+  <div class="body">
+    <p class="brief">Google Cloud and AWS stick out like white-collar workers on a factory floor. Leon trades 3 minutes of an AI-hypercomputing video for two Kind bars and an aluminum bottle of water - the quintessential tech experience, dissociating in front of screens for fancy free snacks.</p>
+    <p class="why"><b>Why it matters:</b> When the cloud giants buy booths at a machine-tool show, the software world is telling you where it thinks the next workload lives.</p>
+    
+  </div>
+</article>
+
+<article class="station" data-line="intelligence" id="s09">
+  <button class="head" onclick="toggle('s09')" aria-expanded="false">
+    <span class="dot" style="--c:#38bdf8"></span>
+    <span class="headtext">
+      <span class="stitle">The Industrial AI Arena</span>
+      <span class="ssub">$5,000 booths, front-row location, weeks in advance</span>
+    </span>
+    <a class="ts" style="--c:#38bdf8" href="https://www.youtube.com/watch?v=tEhbO2z7bMU&t=217s" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ 3:37</a>
+  </button>
+  <div class="body">
+    <p class="brief">Three rows of tiny booths at the very front of North Hall, next to Starbucks: scrappy tech startups that snagged the best location in the conference for about $5,000 each. What are they selling that warrants preferential treatment? AI for the factory.</p>
+    <p class="why"><b>Why it matters:</b> The show itself is betting: give the cheap front row to industrial AI startups, not to another tooling catalog. That is the organizer&#x27;s thesis, not just Leon&#x27;s.</p>
+    <div class="spin"><h4>Spin-off threads</h4><ul><li><a href="https://www.ycombinator.com/launches/PKz-rev1-automating-engineering-drawings-for-mechanical-engineers" target="_blank" rel="noopener">REV1 (YC W26): automating engineering drawings for mechanical engineers - one of the AI-arena startups name-dropped in the video</a></li></ul></div><div class="gaps"><h4>Open gaps</h4><ul><li>&quot;Just weeks in advance&quot; booking claim comes from the video; not independently verified</li></ul></div>
+  </div>
+</article>
+
+<article class="station" data-line="intelligence" id="s10">
+  <button class="head" onclick="toggle('s10')" aria-expanded="false">
+    <span class="dot" style="--c:#38bdf8"></span>
+    <span class="headtext">
+      <span class="stitle">The final boss: Cosmon</span>
+      <span class="ssub">An agentic toolchain for design-to-production</span>
+    </span>
+    <a class="ts" style="--c:#38bdf8" href="https://www.youtube.com/watch?v=tEhbO2z7bMU&t=256s" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ 4:16</a>
+  </button>
+  <div class="body">
+    <p class="brief">Leon interviews Ruy, Stanford-educated founder-CEO of Cosmon: an agentic toolchain for everything before hardware hits the physical world - CAD, simulation, PLM. They just closed a Series A of about $28M, roughly $31M total after the seed.</p>
+    <p class="why"><b>Why it matters:</b> If one company in this video is the bet that engineering itself is about to be eaten by agents, this is it.</p>
+    <div class="spin"><h4>Spin-off threads</h4><ul><li><a href="https://www.cosmon.com/" target="_blank" rel="noopener">Cosmon&#x27;s site: AI agents for product development</a></li><li><a href="https://xometry.pro/en/articles/ai-interviews-cosmon/" target="_blank" rel="noopener">Interview: Argus AI, Cosmon&#x27;s agents for the engineering software stack (Xometry Pro)</a></li><li><a href="https://www.tinytechfund.com/company/cosmon-inc" target="_blank" rel="noopener">Funding record: $31.2M raised</a></li><li><a href="https://www.cosmon.com/blogs/drawing-automation-ai-for-solidworks" target="_blank" rel="noopener">Cosmon on drawing automation for SolidWorks</a></li></ul></div>
+  </div>
+</article>
+
+<article class="station" data-line="intelligence" id="s11">
+  <button class="head" onclick="toggle('s11')" aria-expanded="false">
+    <span class="dot" style="--c:#38bdf8"></span>
+    <span class="headtext">
+      <span class="stitle">Hardware is 3 years behind software</span>
+      <span class="ssub">Software and legal got eaten immediately. Hardware is tougher.</span>
+    </span>
+    <a class="ts" style="--c:#38bdf8" href="https://www.youtube.com/watch?v=tEhbO2z7bMU&t=287s" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ 4:47</a>
+  </button>
+  <div class="body">
+    <p class="brief">Ruy&#x27;s framing: AI penetration in hardware engineering lags software by about three years. Software got eaten immediately; legal got eaten immediately. But when your agent controls a $5M CNC machine, a bug is not a wrong sentence - it&#x27;s a broken machine.</p>
+    <p class="why"><b>Why it matters:</b> The three-year lag is the arbitrage window. Everything in this video is cheap precisely because the wave hasn&#x27;t crested here yet.</p>
+    <div class="gaps"><h4>Open gaps</h4><ul><li>&quot;3 years behind&quot; is the founder&#x27;s estimate, not a measured figure</li></ul></div>
+  </div>
+</article>
+
+<article class="station" data-line="intelligence" id="s12">
+  <button class="head" onclick="toggle('s12')" aria-expanded="false">
+    <span class="dot" style="--c:#38bdf8"></span>
+    <span class="headtext">
+      <span class="stitle">CAD vs CAE vs PLM: where agents work today</span>
+      <span class="ssub">Simulation rips. PLM is tabular. CAD is the hard one.</span>
+    </span>
+    <a class="ts" style="--c:#38bdf8" href="https://www.youtube.com/watch?v=tEhbO2z7bMU&t=305s" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ 5:05</a>
+  </button>
+  <div class="body">
+    <p class="brief">Ruy&#x27;s ranking: simulation (CAE) is the best agent use case - hard, slow, structured data, physics the foundation models already understand; agents rip through a thermal sensitivity study in seconds. PLM is great because it&#x27;s structured tabular data. CAD is the hardest: the 3D component is genuinely challenging and newer models are only starting to look at it; narrow repetitive tasks work, everything-for-everyone doesn&#x27;t.</p>
+    <p class="why"><b>Why it matters:</b> This is the most actionable slide in the video: a working map of where to build first if you&#x27;re entering AI-for-engineering.</p>
+    <div class="spin"><h4>Spin-off threads</h4><ul><li><a href="https://docs.cosmon.com/cad/automation" target="_blank" rel="noopener">Cosmon&#x27;s docs: drawing creation and CAD automation - what production-grade looks like today</a></li><li><a href="https://adsknews.autodesk.com/en/news/upcoming-3d-generative-ai-foundation-models/" target="_blank" rel="noopener">Autodesk&#x27;s work on 3D generative foundation models</a></li></ul></div><div class="gaps"><h4>Open gaps</h4><ul><li>The model Ruy calls &quot;Astro&quot; could not be pinned to a specific public model - possibly Autodesk&#x27;s in-progress foundation model or an ASR garble; flagged, not resolved</li></ul></div>
+  </div>
+</article>
+
+<article class="station" data-line="money" id="s13">
+  <button class="head" onclick="toggle('s13')" aria-expanded="false">
+    <span class="dot" style="--c:#34d399"></span>
+    <span class="headtext">
+      <span class="stitle">Where is everybody?</span>
+      <span class="ssub">AI-for-X has 50 startups per industry. Hardware has about 10.</span>
+    </span>
+    <a class="ts" style="--c:#34d399" href="https://www.youtube.com/watch?v=tEhbO2z7bMU&t=370s" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ 6:10</a>
+  </button>
+  <div class="body">
+    <p class="brief">Ruy is baffled: legal, medical, software have endless AI-for-X startups; product-development engineering has maybe ten. YC produces one AI-drawings startup every six months. Incumbents fill the halls around them.</p>
+    <p class="why"><b>Why it matters:</b> Under-competition is a signal. Either the market is secretly small (the video argues it isn&#x27;t) or the founders haven&#x27;t arrived yet.</p>
+    <div class="gaps"><h4>Open gaps</h4><ul><li>Startup counts are the founder&#x27;s impression, not a census</li></ul></div>
+  </div>
+</article>
+
+<article class="station" data-line="money" id="s14">
+  <button class="head" onclick="toggle('s14')" aria-expanded="false">
+    <span class="dot" style="--c:#34d399"></span>
+    <span class="headtext">
+      <span class="stitle">The AI FOMO demand curve</span>
+      <span class="ssub">&quot;My CEO said we need AI. We haven&#x27;t even looked at hardware yet.&quot;</span>
+    </span>
+    <a class="ts" style="--c:#34d399" href="https://www.youtube.com/watch?v=tEhbO2z7bMU&t=396s" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ 6:36</a>
+  </button>
+  <div class="body">
+    <p class="brief">Customers, distributors and partners all want AI and often don&#x27;t know why - a CEO directive, a document-retrieval project, and nothing in hardware design. Cosmon is one of few providers with any alpha at all, which is exactly how you get budget allocated.</p>
+    <p class="why"><b>Why it matters:</b> Demand arriving before understanding is ugly and wonderful: it&#x27;s how early markets actually feel from the inside.</p>
+    
+  </div>
+</article>
+
+<article class="station" data-line="money" id="s15">
+  <button class="head" onclick="toggle('s15')" aria-expanded="false">
+    <span class="dot" style="--c:#34d399"></span>
+    <span class="headtext">
+      <span class="stitle">Narrow alpha or grand vision?</span>
+      <span class="ssub">Two ways to build - and why Ruy picked the hard one</span>
+    </span>
+    <a class="ts" style="--c:#34d399" href="https://www.youtube.com/watch?v=tEhbO2z7bMU&t=428s" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ 7:08</a>
+  </button>
+  <div class="body">
+    <p class="brief">Startup strategy 101: either be extremely good at one narrow thing, charge for the alpha, and reinvest - or start with the ambitious vision (an agent for CAD + simulation + PLM) and accept a higher chance of failure.</p>
+    <p class="why"><b>Why it matters:</b> This is the fork every builder watching this video has to pick for themselves.</p>
+    
+  </div>
+</article>
+
+<article class="station" data-line="money" id="s16">
+  <button class="head" onclick="toggle('s16')" aria-expanded="false">
+    <span class="dot" style="--c:#34d399"></span>
+    <span class="headtext">
+      <span class="stitle">The case for swinging big</span>
+      <span class="ssub">Talent, power-law capital, and your own 100-hour weeks</span>
+    </span>
+    <a class="ts" style="--c:#34d399" href="https://www.youtube.com/watch?v=tEhbO2z7bMU&t=455s" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ 7:35</a>
+  </button>
+  <div class="body">
+    <p class="brief">Three reasons a grander vision is net-positive: (1) the best people want to work on the hardest, most future-facing problems - it recruits; (2) the VC model pays back from one company in a hundred, so the pitch had better be ambitious; (3) at 80-100 hours a week, you&#x27;d better actually believe you&#x27;re building how engineering will work.</p>
+    <p class="why"><b>Why it matters:</b> It&#x27;s rare to hear the recruiting-capital-sanity argument for ambition made this plainly, on camera, by someone mid-flight.</p>
+    
+  </div>
+</article>
+
+<article class="station" data-line="money" id="s17">
+  <button class="head" onclick="toggle('s17')" aria-expanded="false">
+    <span class="dot" style="--c:#34d399"></span>
+    <span class="headtext">
+      <span class="stitle">Why Ansys exists when OpenFOAM is free</span>
+      <span class="ssub">In this industry people are functionality-sensitive, not price-sensitive</span>
+    </span>
+    <a class="ts" style="--c:#34d399" href="https://www.youtube.com/watch?v=tEhbO2z7bMU&t=513s" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ 8:33</a>
+  </button>
+  <div class="body">
+    <p class="brief">Ruy&#x27;s pricing philosophy: a seat of Ansys goes for around $50,000 while OpenFOAM costs nothing, because a failure is so expensive that best-of-breed wins. So build the most valuable thing imaginable and charge as much as you can until customers push back. Price from value created (time saved, productivity), not from cost-plus. Boeing does not care about $100 vs $200.</p>
+    <p class="why"><b>Why it matters:</b> The single most quotable economics lesson in the video - and a live one, because it explains who can afford to build in this space.</p>
+    <div class="spin"><h4>Spin-off threads</h4><ul><li><a href="https://cfdland.com/openfoam-vs-ansys-fluent/" target="_blank" rel="noopener">OpenFOAM vs ANSYS Fluent comparison</a></li><li><a href="https://airshaper.com/cfd-software-comparison" target="_blank" rel="noopener">AirShaper vs SimScale vs Ansys vs OpenFOAM: CFD software compared</a></li></ul></div><div class="gaps"><h4>Open gaps</h4><ul><li>$50k/seat is the founder&#x27;s ballpark; Ansys pricing is quote-based and varies by module</li></ul></div>
+  </div>
+</article>
+
+<article class="station" data-line="money" id="s18">
+  <button class="head" onclick="toggle('s18')" aria-expanded="false">
+    <span class="dot" style="--c:#34d399"></span>
+    <span class="headtext">
+      <span class="stitle">Cosmon by the numbers</span>
+      <span class="ssub">30-50 paying customers, ~100 pilots, 20 people, not yet profitable</span>
+    </span>
+    <a class="ts" style="--c:#34d399" href="https://www.youtube.com/watch?v=tEhbO2z7bMU&t=603s" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ 10:03</a>
+  </button>
+  <div class="body">
+    <p class="brief">Ruy discloses: 30-50 paying customers, about a hundred more in pilots, a team of roughly 20, growing rapidly, not profitable yet - hoping to get there sooner rather than later.</p>
+    <p class="why"><b>Why it matters:</b> A real revenue snapshot from a company at the center of the video&#x27;s thesis. Rare, specific, on the record.</p>
+    <div class="gaps"><h4>Open gaps</h4><ul><li>All figures are self-reported in the interview; no audited source</li></ul></div>
+  </div>
+</article>
+
+<article class="station" data-line="takeaways" id="s19">
+  <button class="head" onclick="toggle('s19')" aria-expanded="false">
+    <span class="dot" style="--c:#f472b6"></span>
+    <span class="headtext">
+      <span class="stitle">The 10x thesis</span>
+      <span class="ssub">A garage can now do what needed a factory and a bank loan</span>
+    </span>
+    <a class="ts" style="--c:#f472b6" href="https://www.youtube.com/watch?v=tEhbO2z7bMU&t=616s" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ 10:16</a>
+  </button>
+  <div class="body">
+    <p class="brief">Leon&#x27;s synthesis: CNC, 3D printing and metrology all got 10x cheaper and more accessible. An engineer with a garage can do things that used to require a factory. Physical AI is still unsolved, most factories still shuttle parts between machines by hand, and LLMs have made code and technical guidance nearly free - now might be the best time in the last decade to build in physical AI.</p>
+    <p class="why"><b>Why it matters:</b> This is the whole argument in one breath: capability democratized + intelligence arriving + the gap still open.</p>
+    
+  </div>
+</article>
+
+<article class="station" data-line="takeaways" id="s20">
+  <button class="head" onclick="toggle('s20')" aria-expanded="false">
+    <span class="dot" style="--c:#f472b6"></span>
+    <span class="headtext">
+      <span class="stitle">Misumi Ventures: the money shows up</span>
+      <span class="ssub">A $50M early-stage fund for frontier hardware</span>
+    </span>
+    <a class="ts" style="--c:#f472b6" href="https://www.youtube.com/watch?v=tEhbO2z7bMU&t=655s" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶ 10:55</a>
+  </button>
+  <div class="body">
+    <p class="brief">Fictiv&#x27;s parent Misumi announces Misumi Ventures: a $50M early-stage fund writing $500k-$1.5M checks plus prototyping and manufacturing support for frontier hardware, robotics, automation and industrial AI startups. (Disclosure in the video: it was made possible by Fictiv/Misumi; opinions are Leon&#x27;s own.)</p>
+    <p class="why"><b>Why it matters:</b> The video ends where the thesis gets funded. The microcosm closes its own loop: cheaper machines, arriving AI, and now capital specifically for the combination.</p>
+    <div class="spin"><h4>Spin-off threads</h4><ul><li><a href="https://www.misumi.com/misumiventures" target="_blank" rel="noopener">Misumi Ventures official page</a></li><li><a href="https://www.fictiv.com/articles/misumi-americas-launches-misumi-ventures" target="_blank" rel="noopener">Fictiv announcement of the MISUMI Ventures launch</a></li><li><a href="https://www.misumi.co.jp/english/news/press_260917" target="_blank" rel="noopener">MISUMI Group press release establishing the US$50M CVC fund</a></li></ul></div>
+  </div>
+</article>
+</div>
+
+<div class="bigpic">
+  <h2 style="margin-top:0">The big picture</h2>
+  <ol>
+    <li><b>Machines got 10x cheaper.</b> Desktop CNC with tool changers ($2,999), metal printing at micron scale, CT scanning for a few thousand a month. The garage now does what needed a factory and a bank loan.</li>
+    <li><b>AI is arriving 3 years late to hardware - which is the opportunity.</b> Simulation and PLM are agent-ready today; CAD is the hard frontier. Only ~10 startups are seriously building here while CEOs mandate "AI in everything."</li>
+    <li><b>Capital just showed up.</b> Misumi Ventures' $50M fund ($500k-$1.5M checks) exists precisely for frontier hardware, robotics and industrial AI. Cheap machines + arriving intelligence + fresh capital = the window the video is pointing at.</li>
+  </ol>
+</div>
+
+<footer>
+  <p>Built from the video's auto-generated captions and chapter markers on 27 Nov 2026. Every external link above was checked against its live source the same day. Quotes and figures from the interview (Cosmon funding, customer counts, pricing philosophy) are as stated on camera; gaps and unverifiable claims are marked inline rather than smoothed over. Not affiliated with Leon Ex Machina, Fictiv or Misumi.</p>
+  <p style="margin-top:8px">Video made possible by Fictiv/Misumi per its own disclosure. Fan art of the mind, built for one curious person.</p>
+</footer>
+</div>
+<script>
+function toggle(id){
+  const el=document.getElementById(id);
+  el.classList.toggle('open');
+  el.querySelector('.head').setAttribute('aria-expanded', el.classList.contains('open'));
+}
+function filterLine(f,btn){
+  document.querySelectorAll('.chip').forEach(c=>c.classList.remove('on'));
+  btn.classList.add('on');
+  document.querySelectorAll('.station').forEach(s=>{
+    s.classList.toggle('hide', f!=='all' && s.dataset.line!==f);
+  });
+}
+</script>
+</body>
+</html>
